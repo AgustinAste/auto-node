@@ -25,27 +25,43 @@ const makeChangesToFile = (content) => {
 
 }
 const pushChangesToGit = async(msg) => {
-    console.log("committing on git");
-    simpleGit()
-        .init()
-        .add('./*')
-        .addConfig('user.name', 'Agustin')
-        .addConfig('user.email', 'aste.agustin@gmail.com')
-        .commit(msg)
-        .addRemote('origin', 'https://github.com/AgustinAste/auto-py-commits.git')
-        .addRemote('origin', 'some-repo-url')
-        .push(['-f', 'origin', 'master'], () => console.log('done'));
-    console.log("ended committing on git");
+
+    // simpleGit({
+    //         config: [
+    //             `Authorization: token aPjndr15me8hacYaiQ+lWrMv0eeXce9eWn4UX3VkuHg`
+    //         ]
+    //     })
+    //     .init()
+    //     .add('.')
+    //     .addConfig('user.name', 'Agustin')
+    //     .addConfig('user.email', 'aste.agustin@gmail.com')
+    //     .commit(msg)
+    //     .addRemote('origin', 'https://github.com/AgustinAste/auto-node.git')
+    //     .addRemote('origin', 'some-repo-url')
+    //     .push(['-u']);
+    require('child_process').execFile('git', ['commit', '-m', msg]);
+    require('child_process').execFile('git', ['push', '-f']);
+    require('child_process').execFile('agustin');
+    // require('child_process').execFile('agustin');
+    // require('child_process').execFile('agustin');
+    // require('child_process').execFile('agustin');
+    // require('child_process').execFile('agustin');
+    // require('child_process').execFile('agustin');
+    // require('child_process').execFile('agustin');
+    // require('child_process').execFile('agustin');
+    // require('child_process').execFile('agustin');
+    // require('child_process').execFile('agustin');
+
 
 }
 
 // will run the task at 1:05:30pm every day
 // const job = nodeCron.schedule("30 5 13 * * *", function jobYouNeedToExecute() {
 // Do whatever you want in here. Send email, Make  database backup or download data.
-let ammount_of_commits = 1 // Math.floor(Math.random() * 10);
+let ammount_of_commits = Math.floor(Math.random() * 10);
 console.log('ammount_of_commits', ammount_of_commits)
 for (let i = 0; i < ammount_of_commits; i++) {
-    let date_now = moment().format('D-M-Y H:M:S')
+    let date_now = moment().format('D-M-Y H:MM:SS')
 
     let file_content = '\n' + date_now + " " + i;
     makeChangesToFile(file_content);
