@@ -13,13 +13,15 @@ const simpleGit = require('simple-git');
 
 const makeChangesToFile = (content) => {
     console.log("content", content)
-    fs.appendFile('./changes.txt', content, (err, data) => {
-        if (err) {
-            console.error(err)
-            return
-        }
+    fs.appendFileSync('./changes.txt', content
+        // , (err, data) => {
+        //     if (err) {
+        //         console.error(err)
+        //         return
+        //     }
         //file written successfully
-    })
+        // }
+    )
 
 }
 const pushChangesToGit = async(msg) => {
