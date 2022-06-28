@@ -18,8 +18,7 @@ const makeChangesToFile = (content) => {
             console.error(err)
             return
         }
-        console.log("data", data)
-            //file written successfully
+        //file written successfully
     })
 
 }
@@ -40,7 +39,7 @@ const pushChangesToGit = async(msg) => {
 // will run the task at 1:05:30pm every day
 // const job = nodeCron.schedule("30 5 13 * * *", function jobYouNeedToExecute() {
 // Do whatever you want in here. Send email, Make  database backup or download data.
-let ammount_of_commits = Math.floor(Math.random() * 10);
+let ammount_of_commits = 1 // Math.floor(Math.random() * 10);
 console.log('ammount_of_commits', ammount_of_commits)
 for (let i = 0; i < ammount_of_commits; i++) {
     let date_now = moment().format('D-M-Y H:M:S')
