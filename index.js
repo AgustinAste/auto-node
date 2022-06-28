@@ -31,7 +31,8 @@ const pushChangesToGit = async(msg) => {
         .addConfig('user.email', 'aste.agustin@gmail.com')
         .commit(msg)
         .addRemote('origin', 'https://github.com/AgustinAste/auto-py-commits.git')
-        .push('origin', 'master');
+        .addRemote('origin', 'some-repo-url')
+        .push(['-f', 'origin', 'master'], () => console.log('done'));
     console.log("ended committing on git");
 
 }
