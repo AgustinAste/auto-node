@@ -27,7 +27,7 @@ const pushChangesToGit = async(msg) => {
     simpleGit()
         .init()
         .add('./*')
-        .addConfig('user.name', 'AgustinAste')
+        .addConfig('user.name', 'Agustin')
         .addConfig('user.email', 'aste.agustin@gmail.com')
         .commit(msg)
         .addRemote('origin', 'https://github.com/AgustinAste/auto-py-commits.git')
